@@ -50,6 +50,49 @@
               - platformio run && platformio run --target buildfs 
 
 
+        - name: beta_build
+          stage: build
+          if: tag IS .*beta.* AND branch IS release
+          install:
+              - pip install -U platformio
+              - platformio update
+
+          before_script:
+              - gzip ./data_source/data/index.html
+              - mv ./data_source/data/index.html.gz ./data/index.html.gz
+              - mv ./data_source/data/nano.ttf ./data/nano.ttf 
+
+          script:
+              - platformio run && platformio run --target buildfs 
+          deploy:
+            provider: github
+            api_key: Czpm2tD_PiAh0h7NEAt7iA
+            file:
+                -./.pioenvs/esp8285/firmware.bin
+                -./.pioenvs/esp8285/spiffs.bin
+            skip_cleanup: true
+            prerelease: true
+            on:
+                branch: release
+
+
+    
+        - name: release_build
+          stage: build
+          if: tag IS present AND branch IS master
+          install:
+              - pip install -U platformio
+              - platformio update
+
+          before_script:
+              - gzip ./data_source/data/index.html
+              - mv ./data_source/data/index.html.gz ./data/index.html.gz
+              - mv ./data_source/data/nano.ttf ./data/nano.ttf 
+
+          script:
+              - platformio run && platformio run --target buildfs
+
+
 #
 # Template #2: The project is intended to be used as a library with examples.
 #
