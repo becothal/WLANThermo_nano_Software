@@ -32,6 +32,11 @@
  cache:
      directories:
          - "~/.platformio"
+
+branches:
+  only:
+    - /v\d+\.\d+[a-z]/
+
  jobs:
      include:
         - name: build
@@ -52,7 +57,7 @@
 
         - name: beta_build
           stage: build
-          if:  branch = /v\d+\.\d+[a-z]/
+          
           install:
               - pip install -U platformio
               - platformio update
