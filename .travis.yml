@@ -37,8 +37,9 @@
      - pip install -U platformio
      - platformio update
 
- befire_script:
-     - gzip ./data_source/data/index.html ./data/index2.html.gz
+ before_script:
+     - gzip ./data_source/data/index.html
+     - mv ./data_source/data/index.html.gz ./data/index2.html.gz
      - mv ./data_source/data/nano.ttf ./data/nano2.ttf 
 
  script:
