@@ -34,7 +34,8 @@
          - "~/.platformio"
  jobs:
      include:
-        - if: branch IS NOT master 
+        - stage: build 
+          if: branch IS NOT master 
           install:
               - pip install -U platformio
               - platformio update
