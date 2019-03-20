@@ -65,13 +65,6 @@
           script:
               - platformio run && platformio run --target buildfs 
             
-          before_deploy:
-              # Set up git user name and tag this commit
-              - git config --local user.name "YOUR GIT USER NAME"
-              - git config --local user.email "YOUR GIT USER EMAIL"
-              - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
-              - git tag $TRAVIS_TAG
-
           deploy:
             provider: releases
             api_key: Czpm2tD_PiAh0h7NEAt7iA
