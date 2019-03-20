@@ -39,6 +39,7 @@
 
  script:
      - platformio run
+     - platformio run --target buildfs 
 
 
 #
