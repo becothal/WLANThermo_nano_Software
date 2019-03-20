@@ -52,7 +52,7 @@
 
         - name: beta_build
           stage: build
-          if: branch = release
+          if: tag IS present AND branch = release
           install:
               - pip install -U platformio
               - platformio update
@@ -66,7 +66,7 @@
               - platformio run && platformio run --target buildfs 
 
           deploy:
-            provider: github
+            provider: releases
             api_key: Czpm2tD_PiAh0h7NEAt7iA
             file:
                 -./.pioenvs/esp8285/firmware.bin
