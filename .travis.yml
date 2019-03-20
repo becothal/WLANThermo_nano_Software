@@ -34,7 +34,8 @@
          - "~/.platformio"
 
 branches:
-  only:
+    only:
+    - release
     - /v\d+\.\d+[a-z]/
 
  jobs:
@@ -78,6 +79,9 @@ branches:
                 -./.pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
+            on:
+                tags: true
+                all_branches: true 
 
 
 
