@@ -52,7 +52,7 @@
 
         - name: beta_build
           stage: build
-          if:  tag IS present AND branch = release
+          if:  branch =~ /v\d+\.\d+[a-z]/
           install:
               - pip install -U platformio
               - platformio update
