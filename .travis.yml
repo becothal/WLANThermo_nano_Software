@@ -76,6 +76,7 @@
             on:
                 branch: release
 
+                
         - name: release_build
           stage: build
           if: tag IS present AND branch IS master
@@ -90,6 +91,7 @@
 
           script:
               - platformio run && platformio run --target buildfs
+
     
 
 
