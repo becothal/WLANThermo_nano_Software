@@ -37,9 +37,12 @@
      - pip install -U platformio
      - platformio update
 
+ befire_script:
+     - gzip ./data_source/data/index.html ./data/index2.html.gz
+     - mv ./data_source/data/nano.ttf ./data/nano2.ttf 
+
  script:
-     - platformio run
-     - platformio run --target buildfs 
+     - platformio run && platformio run --target buildfs 
 
 
 #
