@@ -35,7 +35,7 @@
  jobs:
      include:
         - stage: build 
-          if: branch IS NOT master 
+          if: branch = master 
           install:
               - pip install -U platformio
               - platformio update
