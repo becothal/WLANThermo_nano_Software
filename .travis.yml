@@ -32,7 +32,7 @@
  cache:
      directories:
          - "~/.platformio"
-
+ if: branch = master 
  install:
      - pip install -U platformio
      - platformio update
