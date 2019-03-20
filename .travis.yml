@@ -52,7 +52,7 @@
 
         - name: beta_build
           stage: build
-          if: tag IS .*beta.* AND branch IS release
+          if: branch IS release
           install:
               - pip install -U platformio
               - platformio update
