@@ -34,8 +34,9 @@
          - "~/.platformio"
  jobs:
      include:
-        - stage: build 
-          if: branch = develop 
+        - name: build
+          stage: build
+          if: tag IS blank
           install:
               - pip install -U platformio
               - platformio update
