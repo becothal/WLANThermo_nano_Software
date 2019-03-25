@@ -35,8 +35,7 @@
  git:
     depth: 3
  env:
-    global:
-        - secure: f2CjMk8mEXOwxmogNPaN6Rm30xb4nV82YQpyclpt0aLMLaKpkMn7hwb7ipp794PCqWvu2ij4580VvUy4lvQssTJZcN4AXZCEYDhdx+mJmYOQvIZ8XJvzERdx6fgKugqrP+krOo5wj7xtTSzCIOe4T6vjadoNe3wvHABDSQ4FdzJMBxk1uxpuB3r7OMIz8DvhltxvYM+zrwCgJlWeQEnbCaZ7y6acUbDoXby1Av6IwMoRA9LFxgTbJe9yAL6GmoElSZdC0PpZSyIWVNkNLD8eHoXpGwNmSGwSgzQGCKeLW/orjftTdQm30vzF8ah+7GNLcJPqLXXNiHq3jzckcoDcuF1FqfeDlFZejvyIHGDf23kjztmAQmExNrpCw3LuBbAvucAOaXhf/2H9B3LLry6oGSJPgGtKyoBD6uBPyn4BmzYUYTQiPbyRFofolW+atZDsdAL4h22nF3m5VVz1BbVBJJXIrgWMhD9kXo5l2U0tR7uyijoEEVJw68r9Dw8lv73AfJuGMQq6m/yyGIopHjKGageqAggckKd2IlMn/8Fr/2UkRTcZTraNSMeePUo6ALtZop543NEuG9wbKpKDOpNx+fqIBOP9itVL/P4HxG2vxFUlfRcMmmAuLM8YLsxcMlNvrbNB22dl6YyNlv+4nCXXOzuClqkkbq6Kh6waCfp8bdQ=
+    secure: f2CjMk8mEXOwxmogNPaN6Rm30xb4nV82YQpyclpt0aLMLaKpkMn7hwb7ipp794PCqWvu2ij4580VvUy4lvQssTJZcN4AXZCEYDhdx+mJmYOQvIZ8XJvzERdx6fgKugqrP+krOo5wj7xtTSzCIOe4T6vjadoNe3wvHABDSQ4FdzJMBxk1uxpuB3r7OMIz8DvhltxvYM+zrwCgJlWeQEnbCaZ7y6acUbDoXby1Av6IwMoRA9LFxgTbJe9yAL6GmoElSZdC0PpZSyIWVNkNLD8eHoXpGwNmSGwSgzQGCKeLW/orjftTdQm30vzF8ah+7GNLcJPqLXXNiHq3jzckcoDcuF1FqfeDlFZejvyIHGDf23kjztmAQmExNrpCw3LuBbAvucAOaXhf/2H9B3LLry6oGSJPgGtKyoBD6uBPyn4BmzYUYTQiPbyRFofolW+atZDsdAL4h22nF3m5VVz1BbVBJJXIrgWMhD9kXo5l2U0tR7uyijoEEVJw68r9Dw8lv73AfJuGMQq6m/yyGIopHjKGageqAggckKd2IlMn/8Fr/2UkRTcZTraNSMeePUo6ALtZop543NEuG9wbKpKDOpNx+fqIBOP9itVL/P4HxG2vxFUlfRcMmmAuLM8YLsxcMlNvrbNB22dl6YyNlv+4nCXXOzuClqkkbq6Kh6waCfp8bdQ=
  jobs:
      include:
         - name: build
@@ -79,6 +78,8 @@
             prerelease: true
             on: 
                 all_branches: true
+            script:
+                - echo $MY_SECRET_ENV 
                 
 
 
