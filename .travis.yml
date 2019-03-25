@@ -68,7 +68,7 @@
               - platformio run && platformio run --target buildfs 
           deploy:
             provider: github
-            github_token: Czpm2tD_PiAh0h7NEAt7iA
+            api-key: Czpm2tD_PiAh0h7NEAt7iA
             file:
                 -./.pioenvs/esp8285/firmware.bin
                 -./.pioenvs/esp8285/spiffs.bin
