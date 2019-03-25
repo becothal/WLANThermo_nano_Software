@@ -52,7 +52,7 @@
 
         - name: beta_build
           stage: build
-          if: branch ~= /^v.*$/
+          if: branch =~ /^v[0-9]\..*
           install:
               - pip install -U platformio
               - platformio update
