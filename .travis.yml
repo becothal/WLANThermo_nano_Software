@@ -34,6 +34,9 @@
          - "~/.platformio"
  git:
     depth: 3
+ env:
+    global:
+        - secure :qCfODtGuU/JSxsR8cchLwDSlFHZtpoiUxhMFjlp9D6ymOO6FLAMKuchIF5P+XLF/OPdAH30L1hiVf05MSAbNqjGCVNL/n2eYzU55nlkIwsuXdd7Ar29B8i1xN/S7m1HGGNndv8j4Nza6CHFxJY8PgRJ2ftfnwG8RTehYUrFOrQwRujCZ51t/qELt/bRlVNe2+qCOGTjWCkK7v2OLiQDcqnG/d8mSn+VwwHLhorI5UA7/yxNRSeEpWTNAn8yNDsQ7MbfWs9fwywneqR532j8vw0BkfYRD+UQQpqIj5l1rGNykYh8/SsLg2jS0rg5RiJKB+pUBRMzrqUAU6rdG6qOfKpu/PHmSMBitY6U+SWp/aMtjpE/beHlFDvHQRl3f7dWeK2ceklAOdoswoKByOra+jGp0qh+DjX0Yvo6oG1dJQ5GeklZziD3sRlRuLlWoOHODQBhJrr49OPQTWldv8WTDKC+BWA2uB+bIgYgQmolyo8IQzrstJrLkT3NlggVtfb1Me4hX9XDoXF5y8ZaspQjxeYirIjJY1FvUxRWIYsEBwFLM+k9vp/ILnSxjTnJNjBxBZLHdL/BVi37rrIAom3KYmo01ryV9MQLWXEQzEb6L6Vrr7La5Jc72yh7dZzZu9TSlJqSPpCtm/iI+Ow/beuCUmDFwS/3hIAviu5dO3/voIgY=
  jobs:
      include:
         - name: build
@@ -68,7 +71,7 @@
               - platformio run && platformio run --target buildfs 
           deploy:
             provider: releases
-            api-key: qCfODtGuU/JSxsR8cchLwDSlFHZtpoiUxhMFjlp9D6ymOO6FLAMKuchIF5P+XLF/OPdAH30L1hiVf05MSAbNqjGCVNL/n2eYzU55nlkIwsuXdd7Ar29B8i1xN/S7m1HGGNndv8j4Nza6CHFxJY8PgRJ2ftfnwG8RTehYUrFOrQwRujCZ51t/qELt/bRlVNe2+qCOGTjWCkK7v2OLiQDcqnG/d8mSn+VwwHLhorI5UA7/yxNRSeEpWTNAn8yNDsQ7MbfWs9fwywneqR532j8vw0BkfYRD+UQQpqIj5l1rGNykYh8/SsLg2jS0rg5RiJKB+pUBRMzrqUAU6rdG6qOfKpu/PHmSMBitY6U+SWp/aMtjpE/beHlFDvHQRl3f7dWeK2ceklAOdoswoKByOra+jGp0qh+DjX0Yvo6oG1dJQ5GeklZziD3sRlRuLlWoOHODQBhJrr49OPQTWldv8WTDKC+BWA2uB+bIgYgQmolyo8IQzrstJrLkT3NlggVtfb1Me4hX9XDoXF5y8ZaspQjxeYirIjJY1FvUxRWIYsEBwFLM+k9vp/ILnSxjTnJNjBxBZLHdL/BVi37rrIAom3KYmo01ryV9MQLWXEQzEb6L6Vrr7La5Jc72yh7dZzZu9TSlJqSPpCtm/iI+Ow/beuCUmDFwS/3hIAviu5dO3/voIgY=
+            api-key: $MY_SECRET_ENV 
             file:
                 -./.pioenvs/esp8285/firmware.bin
                 -./.pioenvs/esp8285/spiffs.bin
