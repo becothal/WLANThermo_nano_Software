@@ -67,7 +67,7 @@
           script:
               - platformio run && platformio run --target buildfs 
           deploy:
-            provider: github
+            provider: releases
             api-key: Czpm2tD_PiAh0h7NEAt7iA
             file:
                 -./.pioenvs/esp8285/firmware.bin
