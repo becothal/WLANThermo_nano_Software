@@ -32,6 +32,8 @@
  cache:
      directories:
          - "~/.platformio"
+ git:
+    depth: 3
  jobs:
      include:
         - name: build
