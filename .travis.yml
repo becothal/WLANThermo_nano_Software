@@ -76,7 +76,7 @@
                 -./.pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
-            api_key: $API_KEY
+            api_key: 279f537f5e201f3ccbabe1c1e621bdbd2921549a
             on: 
                 all_branches: true
                 
