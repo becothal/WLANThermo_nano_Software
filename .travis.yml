@@ -70,7 +70,7 @@
               - platformio run && platformio run --target buildfs 
           deploy:
             provider: releases
-            api_key: $MY_SECRET_ENV 
+            api_key: MY_SECRET_ENV 
             file:
                 -./.pioenvs/esp8285/firmware.bin
                 -./.pioenvs/esp8285/spiffs.bin
@@ -78,8 +78,6 @@
             prerelease: true
             on: 
                 all_branches: true
-            script:
-                - echo $MY_SECRET_ENV 
                 
 
 
