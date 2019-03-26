@@ -69,8 +69,8 @@
           deploy:
             provider: releases
             file:
-                -.pioenvs/esp8285/firmware.bin
-                -.pioenvs/esp8285/spiffs.bin
+                ./.pioenvs/esp8285/firmware.bin
+                .pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
             api_key:
