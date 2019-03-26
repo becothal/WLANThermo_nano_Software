@@ -34,9 +34,6 @@
          - "~/.platformio"
  git:
     depth: 3
- env:
-    global: 
-        secure: "fifO3U7nuz0Gdu1H7YVeQTQolum8vBxr0bXKohhA9vO0c08o9cq+aQ/G/Y9s3X8ofBxSpu+si4IQHwtcphgTpiDqlnFFIZUz9UjL+UuAAxTamSkRJVNzXhDirfjh37Wd09oI8taMq3paCPvOCyhiXFOcvSm4/cpFohNbI1Um9Mcwgmcn3S3oLkz8YC1HJuz2sP80FAQwMjlBdrcITf3L0/WvQkmeMWHRS1qcodUm8VH/okLXKWOB9KDQ/ceo41UwWf2JmkOf3LxS3kiLpJiYd/7RnZ3pgCCLJLz61AjWuAhqZUAEzjI7ZSkt4E/BPYn03/CHBW8U6JVpVJVDH8CRJyRvtIM2GJrNsDelpB+nV2Pa6lpVjeFKNrYa4B3VpI/HLDXgNuOyDOwN7f4afABCiYM9QOWmpB0EO09SVz71rEGzATmCznbd7KDmibMLDtL5/Gw9xw6BOUgM3pMqDVrUjjolhi024H4h6lHTFVK/jg2VX7eKyQSw8WjaE0uHaMWIvQUu0aWQAsRmELMTWbuu7E3TcG3qR+CLZJIH44z4WmByT68MzvBZv65row+QOsQ26A4Ld2hPTrnmb15klEDNbH2E2iAAMwidiY4OEx4lXh/Vd/OdCku6fri96RkDEWbPvYfestpdFnr85wLr2Cf/ytVVuhscbnYOF1HurptbeN8="
  jobs:
      include:
         - name: build
@@ -76,12 +73,11 @@
                 -./.pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
-            api_key: 279f537f5e201f3ccbabe1c1e621bdbd2921549a
+            api_key:
+                secure: gx0NhBm/7UXo7Zql79z5yV3IMRc7VyL8kYyS9RXPWTo9ZOh3ZOIU706yvw83oxc8L6jxmKX/u9kJ102jNDM8Tg/o4qfdz4BBkyWBzamHyqjNX851WsjcIpPtFcyZc1bXRn8zPjXrtmNtgnUsvRVJjtSyyTeFVcqTdC243rKXwr7b8jy9YX4CuJnCy+UgZ1swHZRo1OyEWEYJe93tEBTQGN6WfrogBfQDPB8eLihheS6KUVGfBRMds7puCUMubBYlX/4tuyyB85I038ZGbqHEEGFvFa2y+zlOA5NS4FEhG+NV81kBIuF1Hj+KCSInxmjgWijVOtbsgZnIeFC+hKR5f8etvWStdtNAaxHpWu8qRS5mB5eVNzpvh1lgY3DxMLPHjdG20XB/inOIS7X0DO0rhHolGNgfmHOZyNf6IFy8VEHaz6NBJ7uNyfAVs536Qssk97vUXvNC/dbvxXogGUDeKnkQ/IgTT4Re0o4LrfGMs0WyXP+GlwCCiCMCArGHle/3x9CYSOgUgZ6F9mcogOJbv6rVZ5wChV0EbjoZJpjowUTXe5EHSE2tIllkybP0lEYZv745D+WlCGxjwczRPFoRL3BwKlFZ4q9a8mkmSJcdhZt0lQk0CouLH/qs/zFtBUuO+LgDf/pD7nbZDqBQyv9CNb+4f3oF5gJ2eIe1DYnk+4U=
             on: 
                 all_branches: true
-                
-
-
+                repo: becothal/WLANThermo_nano_Software
 
 
 
