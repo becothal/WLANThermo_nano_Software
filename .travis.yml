@@ -35,7 +35,7 @@
  git:
     depth: 3
  env:
-    secure: rTFuHweU0kmhJVlri5kRHoNAQzcHnuxqAyTOAcvY2V3dlE5tX02OrG5JU773oTRWsiE7M+RXfy4Om+0ZIRyuoJ1bWDYAwyONYd5PJzIlKb0awD8Re1mwRXFkSjU9CpWrOTelCjlqUOBeFKeG0cbMielezhdMLQX9z0b/uHaWTpWzGekKjeIOXCnDRax26gjzTt0Y83Q4Vc+BHo7FQOOcSw2xOJPYA+9dBCtfKZPtokXrlqQFInYaSs/NisMtDnopg2wnf6TkKlwhHANFPWy/7zHRBi/q0Nr2UVuPPeEgqrI7AyCWUjmtpkauh8NVcQQDpcFshmz6QWFyhXLS7t7fZoFZJRBTBf6L4YOXHqKibiWpbC86fNymyM6c1230hLFyWx5yb0TS42IzFhbFNLDEKNyvSqkWsIMl7w66RWWJ0QT5EwgoBzFSlEntl/XAK6WiJzGTs4MAKRQYpjQFAZMIOkwiDflW7lgvD08J1XS59YSJpoje+wWObgefSDt+7+Sia/HADgV9mXdGE8SVSaxuBGJoQ0XlrZTyTMLGjAa82OvFS8ha6uj1IN4Hfbiwm1RHbzCUmn5Ak1TdTom3k/IXVIElYbCStwaz0AWN/Su1nW/WbWxpc5EbbbUa8b08b5rtNtsENRcFelbj6h9B8p4cY4lRNn48s+nyx/w+LLijzPY=
+    secure: "rTFuHweU0kmhJVlri5kRHoNAQzcHnuxqAyTOAcvY2V3dlE5tX02OrG5JU773oTRWsiE7M+RXfy4Om+0ZIRyuoJ1bWDYAwyONYd5PJzIlKb0awD8Re1mwRXFkSjU9CpWrOTelCjlqUOBeFKeG0cbMielezhdMLQX9z0b/uHaWTpWzGekKjeIOXCnDRax26gjzTt0Y83Q4Vc+BHo7FQOOcSw2xOJPYA+9dBCtfKZPtokXrlqQFInYaSs/NisMtDnopg2wnf6TkKlwhHANFPWy/7zHRBi/q0Nr2UVuPPeEgqrI7AyCWUjmtpkauh8NVcQQDpcFshmz6QWFyhXLS7t7fZoFZJRBTBf6L4YOXHqKibiWpbC86fNymyM6c1230hLFyWx5yb0TS42IzFhbFNLDEKNyvSqkWsIMl7w66RWWJ0QT5EwgoBzFSlEntl/XAK6WiJzGTs4MAKRQYpjQFAZMIOkwiDflW7lgvD08J1XS59YSJpoje+wWObgefSDt+7+Sia/HADgV9mXdGE8SVSaxuBGJoQ0XlrZTyTMLGjAa82OvFS8ha6uj1IN4Hfbiwm1RHbzCUmn5Ak1TdTom3k/IXVIElYbCStwaz0AWN/Su1nW/WbWxpc5EbbbUa8b08b5rtNtsENRcFelbj6h9B8p4cY4lRNn48s+nyx/w+LLijzPY="
  jobs:
      include:
         - name: build
@@ -75,6 +75,7 @@
                 -./.pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
+            api_key: ${API_KEY}
             on: 
                 all_branches: true
                 
