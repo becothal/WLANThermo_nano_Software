@@ -35,7 +35,7 @@
  git:
     depth: 3
  env:
-    secure: f2CjMk8mEXOwxmogNPaN6Rm30xb4nV82YQpyclpt0aLMLaKpkMn7hwb7ipp794PCqWvu2ij4580VvUy4lvQssTJZcN4AXZCEYDhdx+mJmYOQvIZ8XJvzERdx6fgKugqrP+krOo5wj7xtTSzCIOe4T6vjadoNe3wvHABDSQ4FdzJMBxk1uxpuB3r7OMIz8DvhltxvYM+zrwCgJlWeQEnbCaZ7y6acUbDoXby1Av6IwMoRA9LFxgTbJe9yAL6GmoElSZdC0PpZSyIWVNkNLD8eHoXpGwNmSGwSgzQGCKeLW/orjftTdQm30vzF8ah+7GNLcJPqLXXNiHq3jzckcoDcuF1FqfeDlFZejvyIHGDf23kjztmAQmExNrpCw3LuBbAvucAOaXhf/2H9B3LLry6oGSJPgGtKyoBD6uBPyn4BmzYUYTQiPbyRFofolW+atZDsdAL4h22nF3m5VVz1BbVBJJXIrgWMhD9kXo5l2U0tR7uyijoEEVJw68r9Dw8lv73AfJuGMQq6m/yyGIopHjKGageqAggckKd2IlMn/8Fr/2UkRTcZTraNSMeePUo6ALtZop543NEuG9wbKpKDOpNx+fqIBOP9itVL/P4HxG2vxFUlfRcMmmAuLM8YLsxcMlNvrbNB22dl6YyNlv+4nCXXOzuClqkkbq6Kh6waCfp8bdQ=
+    secure: rTFuHweU0kmhJVlri5kRHoNAQzcHnuxqAyTOAcvY2V3dlE5tX02OrG5JU773oTRWsiE7M+RXfy4Om+0ZIRyuoJ1bWDYAwyONYd5PJzIlKb0awD8Re1mwRXFkSjU9CpWrOTelCjlqUOBeFKeG0cbMielezhdMLQX9z0b/uHaWTpWzGekKjeIOXCnDRax26gjzTt0Y83Q4Vc+BHo7FQOOcSw2xOJPYA+9dBCtfKZPtokXrlqQFInYaSs/NisMtDnopg2wnf6TkKlwhHANFPWy/7zHRBi/q0Nr2UVuPPeEgqrI7AyCWUjmtpkauh8NVcQQDpcFshmz6QWFyhXLS7t7fZoFZJRBTBf6L4YOXHqKibiWpbC86fNymyM6c1230hLFyWx5yb0TS42IzFhbFNLDEKNyvSqkWsIMl7w66RWWJ0QT5EwgoBzFSlEntl/XAK6WiJzGTs4MAKRQYpjQFAZMIOkwiDflW7lgvD08J1XS59YSJpoje+wWObgefSDt+7+Sia/HADgV9mXdGE8SVSaxuBGJoQ0XlrZTyTMLGjAa82OvFS8ha6uj1IN4Hfbiwm1RHbzCUmn5Ak1TdTom3k/IXVIElYbCStwaz0AWN/Su1nW/WbWxpc5EbbbUa8b08b5rtNtsENRcFelbj6h9B8p4cY4lRNn48s+nyx/w+LLijzPY=
  jobs:
      include:
         - name: build
@@ -70,7 +70,6 @@
               - platformio run && platformio run --target buildfs 
           deploy:
             provider: releases
-            api_key: MY_SECRET_ENV 
             file:
                 -./.pioenvs/esp8285/firmware.bin
                 -./.pioenvs/esp8285/spiffs.bin
