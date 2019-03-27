@@ -38,7 +38,7 @@
           if: branch = develop
           install:
               - pip install -U platformio
-              - platformio update
+              - platformio update 
 
           before_script:
               - gzip ./data_source/data/index.html
