@@ -14,15 +14,6 @@
 #   < https://docs.platformio.org/page/userguide/cmd_ci.html >
 #
 #
-# Please choose one of the following templates (proposed below) and uncomment
-# it (remove "# " before each line) or use own configuration according to the
-# Travis CI documentation (see above).
-#
-
-
-#
-# Template #1: General project. Test it using existing `platformio.ini`.
-#
 
  language: python
  python:
@@ -36,7 +27,7 @@
     depth: 3
  notifications:
     slack:
-        secure: OAZTJvZPEMcF73JTe3MrrbduzU2tvSW8QRcR6YYCekE4TdfdUOWwufrEcXn31RyDu+VjWAYLXrcdl1sm0DhFK7kXB0l3hLAer39RdIr0B2BB2AqznVACSBRu2c567AbQG/mH6hQP/9CDBhG3J++9vMIxqN75WKj+nUTmWFhCf8lGSIijBV9Y4sg1PP7jmuXFl0ZT68BXYEPotYFilwOjb6s7pMK85pVmSfZTWj+9y2V3t3UhKKO2gSSsikHIxCTPgHA2C89f6Vr6YzT9iD3mjF6jgifqCuHbK0JX4UsInaqhUyS6mRPiF09/39lgNRgN2W/b0rmow+0XakNUaSJt76nnFFcICm0LqTP+dAL3SgyiK1SLaHjIRmtkf7NWejpD2+IAaeXqfAPvI81FfVANWO+exymSkc2BS3ahkq9IfBdeeJ3nO2ofzXLOVA3ScqlNpdpcD3bkslExng3AzHTh5vIX1maf89ykWkgWDt6osNBNF0dJbNHDcGDmoqgugzD3KTXDUD8hFZ98wZNziz1VMLwJljK3yYLMwv3GIxAF25YbE+fTEdcmmBFXTaE5K4KTtc0/LKVigO2AAog9tcPQ/ETsW3xLUBgKnjfBYl6jDgUTJ02kerW0LZyu4Woxc/9P5RRsOR4vlQhf8R5sEj+U4YuWOT6et03u67SzMxgu9g0=
+        secure: vXe39dh3wtwXlWll+N8UAhQjWS6WlDal4dpQn7HTTH8yEDKnSFGhSTWzChG3oj8BRJgtU7VG6mBgbyyVo0SApwSC0Lo4j7kdiLTbsCgWotP7bm9mYRu5v+Q1K/GeOp2nSmgotx9nPO1Z/YO8Qehtb2n2G9N0h5ns7eH/TIE1tvsgKdWFbvPVClemuXJW46tHEa4mqyiMMQSWVJqLaj7WY8X3Mm5Qls9w6S91zzkz93Lf0sg0LzDHF/iY9Tc4AGDNQgHPcYYFm3qTwtjHFWGIb6Z5XaB1JGtcCxlHNb+t8i8B6T+CXp5M5E/+DiNGuAAElV4mrXmfNRb0ErtfIgXriqGkceO8SFIDJVY3OYEHCpO4lI5tqCgebYDtwG3//miHgBGHuk/r4eZ10Xrxckk58Nq8+WAzDl4rId09QNDExIJddCclEmo7TBwwiOn3kPKHtGSeU1e+aEUtmWif3EOReQzdDB3Im6QEy2SlLTGtU0xy2XoWXDh7b3bc21dDVMd5t52RAYY2lAAgLzdTAAZZ4vYdUpgJYmc2qTyBizTkUj8joB7fgtGxPvmO7SEKqzDQprrcQ9GugNTaxPVcsr1a/6tIKDWbmFMrV5clluaOsqi07dqirANMAGvPviHUcs88906327OwX5JQzN3kSS/q5vjJ84571pd1RDxxYVX6oog=
         on_success: always
         on_failure: always
  jobs:
@@ -112,30 +103,3 @@
             on: 
                 all_branches: true
                 repo: becothal/WLANThermo_nano_Software
-
-
-
-#
-# Template #2: The project is intended to be used as a library with examples.
-#
-
-# language: python
-# python:
-#     - "2.7"
-#
-# sudo: false
-# cache:
-#     directories:
-#         - "~/.platformio"
-#
-# env:
-#     - PLATFORMIO_CI_SRC=path/to/test/file.c
-#     - PLATFORMIO_CI_SRC=examples/file.ino
-#     - PLATFORMIO_CI_SRC=path/to/test/directory
-#
-# install:
-#     - pip install -U platformio
-#     - platformio update
-#
-# script:
-#     - platformio ci --lib="." --board=ID_1 --board=ID_2 --board=ID_N
