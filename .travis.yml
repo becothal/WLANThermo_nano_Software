@@ -34,11 +34,16 @@
          - "~/.platformio"
  git:
     depth: 3
+ notifications:
+    slack:
+        secure: OAZTJvZPEMcF73JTe3MrrbduzU2tvSW8QRcR6YYCekE4TdfdUOWwufrEcXn31RyDu+VjWAYLXrcdl1sm0DhFK7kXB0l3hLAer39RdIr0B2BB2AqznVACSBRu2c567AbQG/mH6hQP/9CDBhG3J++9vMIxqN75WKj+nUTmWFhCf8lGSIijBV9Y4sg1PP7jmuXFl0ZT68BXYEPotYFilwOjb6s7pMK85pVmSfZTWj+9y2V3t3UhKKO2gSSsikHIxCTPgHA2C89f6Vr6YzT9iD3mjF6jgifqCuHbK0JX4UsInaqhUyS6mRPiF09/39lgNRgN2W/b0rmow+0XakNUaSJt76nnFFcICm0LqTP+dAL3SgyiK1SLaHjIRmtkf7NWejpD2+IAaeXqfAPvI81FfVANWO+exymSkc2BS3ahkq9IfBdeeJ3nO2ofzXLOVA3ScqlNpdpcD3bkslExng3AzHTh5vIX1maf89ykWkgWDt6osNBNF0dJbNHDcGDmoqgugzD3KTXDUD8hFZ98wZNziz1VMLwJljK3yYLMwv3GIxAF25YbE+fTEdcmmBFXTaE5K4KTtc0/LKVigO2AAog9tcPQ/ETsW3xLUBgKnjfBYl6jDgUTJ02kerW0LZyu4Woxc/9P5RRsOR4vlQhf8R5sEj+U4YuWOT6et03u67SzMxgu9g0=
+        on_success: always
+        on_failure: always
  jobs:
      include:
         - name: build
           stage: build
-          if: tag IS blank
+          if: branch = develop
           install:
               - pip install -U platformio
               - platformio update
@@ -73,6 +78,33 @@
                 - ./.pioenvs/esp8285/spiffs.bin
             skip_cleanup: true
             prerelease: true
+            api_key:
+                secure: gx0NhBm/7UXo7Zql79z5yV3IMRc7VyL8kYyS9RXPWTo9ZOh3ZOIU706yvw83oxc8L6jxmKX/u9kJ102jNDM8Tg/o4qfdz4BBkyWBzamHyqjNX851WsjcIpPtFcyZc1bXRn8zPjXrtmNtgnUsvRVJjtSyyTeFVcqTdC243rKXwr7b8jy9YX4CuJnCy+UgZ1swHZRo1OyEWEYJe93tEBTQGN6WfrogBfQDPB8eLihheS6KUVGfBRMds7puCUMubBYlX/4tuyyB85I038ZGbqHEEGFvFa2y+zlOA5NS4FEhG+NV81kBIuF1Hj+KCSInxmjgWijVOtbsgZnIeFC+hKR5f8etvWStdtNAaxHpWu8qRS5mB5eVNzpvh1lgY3DxMLPHjdG20XB/inOIS7X0DO0rhHolGNgfmHOZyNf6IFy8VEHaz6NBJ7uNyfAVs536Qssk97vUXvNC/dbvxXogGUDeKnkQ/IgTT4Re0o4LrfGMs0WyXP+GlwCCiCMCArGHle/3x9CYSOgUgZ6F9mcogOJbv6rVZ5wChV0EbjoZJpjowUTXe5EHSE2tIllkybP0lEYZv745D+WlCGxjwczRPFoRL3BwKlFZ4q9a8mkmSJcdhZt0lQk0CouLH/qs/zFtBUuO+LgDf/pD7nbZDqBQyv9CNb+4f3oF5gJ2eIe1DYnk+4U=
+            on: 
+                all_branches: true
+                repo: becothal/WLANThermo_nano_Software
+
+         - name: release_build
+          stage: build
+          if: branch =~ v[0-9]\.[0-9]*
+          install:
+              - pip install -U platformio
+              - platformio update
+
+          before_script:
+              - gzip ./data_source/data/index.html
+              - mv ./data_source/data/index.html.gz ./data/index.html.gz
+              - mv ./data_source/data/nano.ttf ./data/nano.ttf 
+
+          script:
+              - platformio run && platformio run --target buildfs 
+          deploy:
+            provider: releases
+            file:
+                - ./.pioenvs/esp8285/firmware.bin
+                - ./.pioenvs/esp8285/spiffs.bin
+            skip_cleanup: true
+            prerelease: false
             api_key:
                 secure: gx0NhBm/7UXo7Zql79z5yV3IMRc7VyL8kYyS9RXPWTo9ZOh3ZOIU706yvw83oxc8L6jxmKX/u9kJ102jNDM8Tg/o4qfdz4BBkyWBzamHyqjNX851WsjcIpPtFcyZc1bXRn8zPjXrtmNtgnUsvRVJjtSyyTeFVcqTdC243rKXwr7b8jy9YX4CuJnCy+UgZ1swHZRo1OyEWEYJe93tEBTQGN6WfrogBfQDPB8eLihheS6KUVGfBRMds7puCUMubBYlX/4tuyyB85I038ZGbqHEEGFvFa2y+zlOA5NS4FEhG+NV81kBIuF1Hj+KCSInxmjgWijVOtbsgZnIeFC+hKR5f8etvWStdtNAaxHpWu8qRS5mB5eVNzpvh1lgY3DxMLPHjdG20XB/inOIS7X0DO0rhHolGNgfmHOZyNf6IFy8VEHaz6NBJ7uNyfAVs536Qssk97vUXvNC/dbvxXogGUDeKnkQ/IgTT4Re0o4LrfGMs0WyXP+GlwCCiCMCArGHle/3x9CYSOgUgZ6F9mcogOJbv6rVZ5wChV0EbjoZJpjowUTXe5EHSE2tIllkybP0lEYZv745D+WlCGxjwczRPFoRL3BwKlFZ4q9a8mkmSJcdhZt0lQk0CouLH/qs/zFtBUuO+LgDf/pD7nbZDqBQyv9CNb+4f3oF5gJ2eIe1DYnk+4U=
             on: 
